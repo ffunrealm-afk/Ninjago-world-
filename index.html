@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninjago Hub | نينجاغو</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #0d1117;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            margin: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background: #161b22;
+            padding: 25px 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            border: 1px solid #30363d;
+        }
+        h1 {
+            color: #f0883e;
+            font-size: 22px;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+        .sub-title {
+            color: #8b949e;
+            font-size: 14px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        .discord-btn {
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            text-decoration: none;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .discord-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+        }
+        .drive-btn {
+            background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+            color: white;
+            padding: 14px 18px;
+            font-size: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            box-sizing: border-box;
+            margin-top: 12px;
+            box-shadow: 0 4px 15px rgba(46, 160, 67, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .drive-btn:hover {
+            background: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 160, 67, 0.5);
+        }
+        .trailer-btn {
+            background: linear-gradient(135deg, #007acc 0%, #00bcd4 100%);
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+        }
+        .trailer-btn:hover {
+            background: linear-gradient(135deg, #00bcd4 0%, #26c6da 100%);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.5);
+        }
+        .lang-section {
+            background: #21262d;
+            margin: 20px 0;
+            padding: 18px;
+            border-radius: 12px;
+            border-right: 4px solid #f0883e;
+            text-align: right;
+            border-left: 1px solid #30363d;
+            border-top: 1px solid #30363d;
+            border-bottom: 1px solid #30363d;
+        }
+        .lang-title {
+            margin-top: 0;
+            color: #f0883e;
+            font-size: 17px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .video-box {
+            background: #161b22;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #30363d;
+        }
+        .video-title {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #e6edf3;
+            text-align: left;
+            direction: ltr;
+        }
+        .thanks-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .bot-icon {
+            width: 55px;
+            height: 55px;
+            min-width: 55px;
+            background-color: #21262d;
+            border-radius: 50%;
+            border: 2px solid #2ea043;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 0 12px rgba(46, 160, 67, 0.3);
+        }
+        .thanks-text {
+            font-size: 13px;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .thanks-text a {
+            color: #3fb950;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .error-msg {
+            color: #ff7b72;
+            background: #3b1111;
+            border: 1px solid #da3633;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .invite-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 12px;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🐉 عالم نينجاغو<br>Ninjago Hub</h1>
+        <div class="sub-title">Trailers & Episodes</div>
+
+        <p style="color: #c9d1d9; font-size: 14px;">لمشاهدة المحتوى، يجب تسجيل الدخول عبر ديسكورد والانضمام لسيرفرنا!</p>
+        <p style="direction: ltr; color: #8b949e; font-size: 13px;">To watch content, please login with Discord and join our server!</p>
+        
+        <a id="login-btn" class="discord-btn" href="#">
+            تسجيل الدخول بواسطة Discord <br>
+            <span style="font-size: 13px; font-weight: normal; opacity: 0.8;">Login with Discord</span>
+        </a>
+
+        <div id="error-box" class="error-msg"></div>
+
+        <div id="episodes-section" style="display: none; margin-top: 25px;">
+            
+            <div class="lang-section" style="border-right-color: #00bcd4;">
+                <h3 class="lang-title" style="color: #00bcd4;">🔥 الإعلانات الرسمية | Official Trailers</h3>
+                
+                <div class="video-box">
+                    <p class="video-title">Ninjago Dragons Fury</p>
+                    <a href="https://drive.google.com/file/d/1zkWVrh9Ogpol5jk6XFXaikye9m3EV4Dk/view" target="_blank" class="drive-btn trailer-btn">🎬 مشاهدة الإعلان بجودة عالية</a>
+                </div>
+                
+                <div class="video-box">
+                    <p class="video-title">Ninjago Legends Duskfall</p>
+                    <a href="https://drive.google.com/file/d/1IWiZH3TDu03LTLtBWRxZ47VxBjmfOxYe/view" target="_blank" class="drive-btn trailer-btn">🎬 مشاهدة الإعلان بجودة عالية</a>
+                </div>
+                
+                <div class="video-box">
+                    <p class="video-title">Ninjago Dragons Rising S4 P2</p>
+                    <a href="https://drive.google.com/file/d/1pzfUrqNnxifGs1rkhVpYFhPnGemeZEV-/view" target="_blank" class="drive-btn trailer-btn">🎬 مشاهدة الإعلان بجودة عالية</a>
+                </div>
+            </div>
+
+            <div class="lang-section">
+                <h3 class="lang-title">🇸🇦 الحلقات المترجمة (Arabic Sub - 10 Episodes)</h3>
+                
+                <div class="thanks-card">
+                    <div class="bot-icon">🤖</div>
+                    <div class="thanks-text">
+                        شكر خاص لـ <strong>Ninjago Bot</strong> على توفير الحلقات المترجمة الرائعة!<br>
+                        قناة التليجرام: <a href="https://t.me/Ninjago_i0bot" target="_blank">t.me/Ninjago_i0bot</a>
+                    </div>
+                </div>
+                
+                <div class="video-box">
+                    <p style="margin: 0 0 8px 0; font-size: 13px; color: #8b949e;">مجلد الحلقات كاملة المترجمة على جوجل درايف</p>
+                    <!-- تم تحديث الرابط هنا -->
+                    <a href="https://drive.google.com/drive/folders/1J3SfsV1oIwOY7pNjMy6a8zXQYZj3CvtC" target="_blank" class="drive-btn">📁 فتح مجلد الحلقات المترجمة</a>
+                </div>
+            </div>
+
+            <div class="lang-section">
+                <h3 class="lang-title">🇬🇧 English Version (10 Episodes)</h3>
+                
+                <div class="video-box">
+                    <p style="margin: 0 0 8px 0; font-size: 13px; color: #8b949e;">English Episodes Google Drive Folder</p>
+                    <a href="https://drive.google.com/drive/folders/1plwRVj8ny79by3LLGpN_kTdM0k8mZdw9" target="_blank" class="drive-btn">📁 Open English Folder</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const CLIENT_ID = '1529911838882660402';
+        const SERVER_ID = '1404776250941374475';
+        const REDIRECT_URI = window.location.origin + window.location.pathname;
+        const loginBtn = document.getElementById('login-btn');
+        loginBtn.href = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+guilds`;
+
+        const fragment = new URLSearchParams(window.location.hash.slice(1));
+        const accessToken = fragment.get('access_token');
+
+        if (accessToken) {
+            loginBtn.style.display = 'none';
+            fetch('https://discord.com/api/users/@me/guilds', {
+                headers: { authorization: `Bearer ${accessToken}` }
+            })
+            .then(res => res.json())
+            .then(guilds => {
+                const isMember = guilds.some(guild => guild.id === SERVER_ID);
+                if (isMember) {
+                    document.getElementById('episodes-section').style.display = 'block';
+                } else {
+                    const errorBox = document.getElementById('error-box');
+                    errorBox.style.display = 'block';
+                    errorBox.innerHTML = `
+                        ❌ عذراً، يجب أن تكون عضواً في سيرفرنا لمشاهدة الحلقات والمحتوى!<br>
+                        <a href="https://discord.gg/NWmwYCtU9k" class="invite-btn" target="_blank">الانضمام إلى السيرفر الآن</a>
+                    `;
+                }
+            })
+            .catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>
