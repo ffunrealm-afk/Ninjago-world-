@@ -1,30 +1,26 @@
-const CLIENT_ID = '1529911838882660402';
-const SERVER_ID = '1404776250941374475';
-const REDIRECT_URI = window.location.origin + window.location.pathname;
+// ضع رابط سيرفر الـ Backend الخاص بك الذي استضفته على (Render / Railway / Replit)
+const BACKEND_URL = 'https://your-backend-domain.com'; 
+
 const loginBtn = document.getElementById('login-btn');
-loginBtn.href = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=identify+guilds+guilds.join`;
+const errorBox = document.getElementById('error-box');
+const episodesSection = document.getElementById('episodes-section');
 
-const fragment = new URLSearchParams(window.location.hash.slice(1));
-const accessToken = fragment.get('access_token');
+// ربط زر التسجيل برابط اللوجن في السيرفر الخلفي
+loginBtn.href = `${BACKEND_URL}/login`;
 
-if (accessToken) {
+// قراءة المتغيرات من الرابط بعد العودة من السيرفر
+const urlParams = new URLSearchParams(window.location.search);
+const status = urlParams.get('status');
+
+if (status === 'success') {
+    // تم تسجيل الدخول والإضافة للسيرفر بنجاح
     loginBtn.style.display = 'none';
-    fetch('https://discord.com/api/users/@me/guilds', {
-        headers: { authorization: `Bearer ${accessToken}` }
-    })
-    .then(res => res.json())
-    .then(guilds => {
-        const isMember = guilds.some(guild => guild.id === SERVER_ID);
-        if (isMember) {
-            document.getElementById('episodes-section').style.display = 'block';
-        } else {
-            const errorBox = document.getElementById('error-box');
-            errorBox.style.display = 'block';
-            errorBox.innerHTML = `
-                ❌ عذراً، يجب أن تكون عضواً في سيرفرنا لمشاهدة الحلقات والمحتوى!<br>
-                <a href="https://discord.gg/NWmwYCtU9k" class="invite-btn" target="_blank">الانضمام إلى السيرفر الآن</a>
-            `;
-        }
-    })
-    .catch(err => console.error(err));
+    episodesSection.style.display = 'block';
+} else if (status === 'error') {
+    // حدث خطأ أثناء الإضافة
+    errorBox.style.display = 'block';
+    errorBox.innerHTML = `
+        ❌ حدث خطأ أثناء محاولة إضافتك للسيرفر. يرجى المحاولة مرة أخرى أو الانضمام يدوياً.<br>
+        <a href="https://discord.gg/NWmwYCtU9k" class="invite-btn" target="_blank">الانضمام المباشر</a>
+    `;
 }
