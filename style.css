@@ -1,0 +1,168 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #0d1117;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+}
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    background: #161b22;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    border: 1px solid #30363d;
+}
+h1 {
+    color: #f0883e;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+.sub-title {
+    color: #8b949e;
+    font-size: 14px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+.discord-btn {
+    background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.discord-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+}
+.drive-btn {
+    background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+    color: white;
+    padding: 14px 18px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin-top: 12px;
+    box-shadow: 0 4px 15px rgba(46, 160, 67, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.drive-btn:hover {
+    background: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 160, 67, 0.5);
+}
+.trailer-btn {
+    background: linear-gradient(135deg, #007acc 0%, #00bcd4 100%);
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+.trailer-btn:hover {
+    background: linear-gradient(135deg, #00bcd4 0%, #26c6da 100%);
+    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.5);
+}
+.lang-section {
+    background: #21262d;
+    margin: 20px 0;
+    padding: 18px;
+    border-radius: 12px;
+    border-right: 4px solid #f0883e;
+    text-align: right;
+    border-left: 1px solid #30363d;
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+}
+.lang-title {
+    margin-top: 0;
+    color: #f0883e;
+    font-size: 17px;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+}
+.video-box {
+    background: #161b22;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #30363d;
+}
+.video-title {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #e6edf3;
+    text-align: left;
+    direction: ltr;
+}
+.thanks-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.bot-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    background-color: #21262d;
+    border-radius: 50%;
+    border: 2px solid #2ea043;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 0 12px rgba(46, 160, 67, 0.3);
+}
+.thanks-text {
+    font-size: 13px;
+    color: #c9d1d9;
+    line-height: 1.6;
+}
+.thanks-text a {
+    color: #3fb950;
+    text-decoration: none;
+    font-weight: bold;
+}
+.error-msg {
+    color: #ff7b72;
+    background: #3b1111;
+    border: 1px solid #da3633;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: none;
+    line-height: 1.6;
+    font-size: 14px;
+}
+.invite-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+    box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);
+}
