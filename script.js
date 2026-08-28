@@ -1,26 +1,53 @@
-// ضع رابط سيرفر الـ Backend الخاص بك الذي استضفته على (Render / Railway / Replit)
-const BACKEND_URL = 'https://bot-beta-gilt.vercel.app'; 
+const BACKEND_URL = 'https://bot-beta-gilt.vercel.app'; // ضع رابط Vercel الخاص بك
 
-const loginBtn = document.getElementById('login-btn');
-const errorBox = document.getElementById('error-box');
-const episodesSection = document.getElementById('episodes-section');
+window.addEventListener('DOMContentLoaded', async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const userIdFromUrl = urlParams.get('userId');
+    const status = urlParams.get('status');
 
-// ربط زر التسجيل برابط اللوجن في السيرفر الخلفي
-loginBtn.href = `${BACKEND_URL}/login`;
+    // 1. إذا عاد المستخدم توه من عملية تسجيل الدخول بنجاح
+    if (status === 'success' && userIdFromUrl) {
+        localStorage.setItem('discord_user_id', userIdFromUrl);
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
 
-// قراءة المتغيرات من الرابط بعد العودة من السيرفر
-const urlParams = new URLSearchParams(window.location.search);
-const status = urlParams.get('status');
+    const savedUserId = localStorage.getItem('discord_user_id');
 
-if (status === 'success') {
-    // تم تسجيل الدخول والإضافة للسيرفر بنجاح
-    loginBtn.style.display = 'none';
-    episodesSection.style.display = 'block';
-} else if (status === 'error') {
-    // حدث خطأ أثناء الإضافة
-    errorBox.style.display = 'block';
-    errorBox.innerHTML = `
-        ❌ حدث خطأ أثناء محاولة إضافتك للسيرفر. يرجى المحاولة مرة أخرى أو الانضمام يدوياً.<br>
-        <a href="https://discord.gg/NWmwYCtU9k" class="invite-btn" target="_blank">الانضمام المباشر</a>
-    `;
+    // 2. التحقق من السيرفر إذا كان الـ ID مسبق الحفظ
+    if (savedUserId) {
+        try {
+            const res = await fetch(`${BACKEND_URL}/check-auth?userId=${savedUserId}`);
+            const data = await res.json();
+
+            if (data.joined) {
+                // المستخدم مسجل وموجود بالسيرفر فعلاً
+                onUserAuthenticated(data.user);
+                return;
+            }
+        } catch (e) {
+            console.error('Error checking authentication status:', e);
+        }
+    }
+
+    // 3. إن لم يكن مسجلاً أو تغيب عن السيرفر
+    localStorage.removeItem('discord_user_id');
+    showLoginButton();
+});
+
+function onUserAuthenticated(user) {
+    // إخفاء زر تسجيل الدخول وإظهار رسالة الترحيب أو المحتوى
+    const loginBtn = document.getElementById('login-btn'); // عدل الـ ID حسب زر الدخول عندك
+    if (loginBtn) loginBtn.style.display = 'none';
+
+    console.log(`Welcome back, ${user.username}!`);
+}
+
+function showLoginButton() {
+    const loginBtn = document.getElementById('login-btn');
+    if (loginBtn) {
+        loginBtn.style.display = 'block';
+        loginBtn.onclick = () => {
+            window.location.href = `${BACKEND_URL}/login`;
+        };
+    }
 }
