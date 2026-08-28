@@ -1,5 +1,5 @@
 // ضع رابط سيرفر الـ Backend الخاص بك الذي استضفته على (Render / Railway / Replit)
-const BACKEND_URL = 'https://bot-production-6217.up.railway.app'; 
+const BACKEND_URL = 'https://bot-beta-gilt.vercel.app'; 
 
 const loginBtn = document.getElementById('login-btn');
 const errorBox = document.getElementById('error-box');
