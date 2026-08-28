@@ -15,14 +15,16 @@
         <p style="color: #c9d1d9; font-size: 14px;">لمشاهدة المحتوى، يجب تسجيل الدخول عبر ديسكورد والانضمام لسيرفرنا!</p>
         <p style="direction: ltr; color: #8b949e; font-size: 13px;">To watch content, please login with Discord and join our server!</p>
         
-        <a id="login-btn" class="discord-btn" href="#">
+        <!-- تم إضافة id="discord-login-btn" للزر -->
+        <a id="discord-login-btn" class="discord-btn" href="#">
             تسجيل الدخول بواسطة Discord <br>
             <span style="font-size: 13px; font-weight: normal; opacity: 0.8;">Login with Discord</span>
         </a>
 
-        <div id="error-box" class="error-msg"></div>
+        <div id="status-msg" class="error-msg"></div>
 
-        <div id="episodes-section" style="display: none; margin-top: 25px;">
+        <!-- تم إضافة id="main-content" للكونتينر الأساسي للحلقات -->
+        <div id="main-content" class="hidden" style="margin-top: 25px;">
             
             <div class="lang-section" style="border-right-color: #00bcd4;">
                 <h3 class="lang-title" style="color: #00bcd4;">🔥 الإعلانات الرسمية | Official Trailers</h3>
@@ -56,7 +58,6 @@
                 
                 <div class="video-box">
                     <p style="margin: 0 0 8px 0; font-size: 13px; color: #8b949e;">مجلد الحلقات كاملة المترجمة على جوجل درايف</p>
-                    <!-- تم تحديث الرابط هنا -->
                     <a href="https://drive.google.com/drive/folders/1J3SfsV1oIwOY7pNjMy6a8zXQYZj3CvtC" target="_blank" class="drive-btn">📁 فتح مجلد الحلقات المترجمة</a>
                 </div>
             </div>
@@ -72,6 +73,7 @@
 
         </div>
     </div>
+
 <script src="script.js"></script>
 </body>
 </html>
