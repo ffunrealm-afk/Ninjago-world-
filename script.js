@@ -1,22 +1,28 @@
 const BACKEND_URL = 'https://bot-beta-gilt.vercel.app';
 
+// دالة التوجيه المباشر
+function loginWithDiscord() {
+    window.location.href = `${BACKEND_URL}/login`;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     const discordBtn = document.getElementById('discord-login-btn');
     const mainContent = document.getElementById('main-content');
     const statusMsg = document.getElementById('status-msg');
 
-    // إعداد زر تسجيل الدخول
+    // ربط الزر بحدث الضغط
     if (discordBtn) {
-        discordBtn.onclick = () => {
-            window.location.href = `${BACKEND_URL}/login`;
-        };
+        discordBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginWithDiscord();
+        });
     }
 
     const urlParams = new URLSearchParams(window.location.search);
     const userIdFromUrl = urlParams.get('userId');
     const status = urlParams.get('status');
 
-    // 1. إذا عاد المستخدم من تسجيل الدخول بنجاح
+    // 1. عند العودة بنجاح من تسجيل الدخول
     if (status === 'success' && userIdFromUrl) {
         localStorage.setItem('discord_user_id', userIdFromUrl);
         window.history.replaceState({}, document.title, window.location.pathname);
@@ -37,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
         } catch (e) {
-            console.error('Error checking authentication status:', e);
+            console.error('Error checking auth:', e);
         }
     }
 
