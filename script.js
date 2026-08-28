@@ -1,13 +1,13 @@
-const BACKEND_URL = 'https://bot-beta-gilt.vercel.app'; // رابط Vercel الخاص بالباك إند
+const BACKEND_URL = 'https://bot-beta-gilt.vercel.app';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const loginBtn = document.getElementById('discord-login-btn');
+    const discordBtn = document.getElementById('discord-login-btn');
     const mainContent = document.getElementById('main-content');
     const statusMsg = document.getElementById('status-msg');
 
     // إعداد زر تسجيل الدخول
-    if (loginBtn) {
-        loginBtn.onclick = () => {
+    if (discordBtn) {
+        discordBtn.onclick = () => {
             window.location.href = `${BACKEND_URL}/login`;
         };
     }
@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = await res.json();
 
             if (data.joined) {
-                // العضو مسجل وموجود في السيرفر بالفعل -> إظهار المحتوى وإخفاء زر الدخول
-                if (loginBtn) loginBtn.style.display = 'none';
+                if (discordBtn) discordBtn.style.display = 'none';
                 if (statusMsg) statusMsg.style.display = 'none';
                 if (mainContent) mainContent.classList.remove('hidden');
                 return;
@@ -42,9 +41,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // 3. إذا لم يكن مسجلاً أو غادر السيرفر -> إظهار زر الدخول وإخفاء المحتوى
+    // 3. إذا لم يكن مسجلاً
     localStorage.removeItem('discord_user_id');
-    if (loginBtn) loginBtn.style.display = 'inline-block';
+    if (discordBtn) discordBtn.style.display = 'inline-block';
     if (statusMsg) statusMsg.style.display = 'block';
     if (mainContent) mainContent.classList.add('hidden');
 });
